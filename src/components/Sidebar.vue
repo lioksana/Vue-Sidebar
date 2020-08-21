@@ -79,7 +79,7 @@
     },
 
     data: () => ({
-      barColor: 'rgba(0, 0, 0, .8), rgba(0, 0, 0, .3)',
+      barColor: 'rgba(0, 0, 0, .9), rgba(0, 0, 0, .4)',
       barImage: 'sidebar.jpg',
       sidebar: null,
       mainMenu: [
