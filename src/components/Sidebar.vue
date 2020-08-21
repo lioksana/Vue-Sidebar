@@ -186,7 +186,7 @@
           margin-top: 10px
 
     .v-list-item__icon
-      margin: 12px 0
+      margin: 14px 0
     .v-list-group--sub-group
       .v-list-item
         +ltr()
