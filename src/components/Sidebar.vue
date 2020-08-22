@@ -7,7 +7,7 @@
     mobile-breakpoint="760"
     app
     width="270"
-    v-model="sidebar"
+    v-model="drawer"
     v-bind="$attrs"
   >
     <v-divider class="mb-3" />
@@ -51,30 +51,21 @@
     components : {
       BaseItem,
     },
-
+    props:['mainMenu'],
     data: () => ({
       barColor: 'rgba(60, 135, 230, .9), rgba(60, 135, 230, .7)',
-      barImage: 'sideback.png',
-      sidebar: null,
-      mainMenu: [
-        { label: 'UŻYTKOWNICY', icon: 'mdi-account', to: '/' },
-        { label: 'GRUPY', icon: 'mdi-account-group', to: '/views/groups' },
-        { label: 'LOKALIZACJE', icon: 'mdi-map-marker', to: '/views/locations' },
-        { label: 'KLASY', icon: 'mdi-google-classroom', to: '/views/class' },
-        { label: 'PRZYCZYNY', icon: 'mdi-atom-variant', to: '/views/causes' },
-        { label: 'TAGI', icon: 'mdi-code-tags', to: '/views/tags' },
-        { label: 'ZDARZENIA', icon: 'mdi-bell', to: '/views/events' },
-      ],
-      login:{
-        showLoginWindow: false,
-        loggedInUser:{
-          login: "rajez",
-          fullName: "Zbigniew Rajewski",
-          groups:{1: {id: 1, name: "ADMIN"}},
-          avatar: "avatar.jpg"
-        }
-      },
+      barImage: 'sideback.png',      
     }),
+    computed:{
+      drawer: {
+        get(){
+          return this.$store.state.drawer
+        },
+        set(drawState){
+          this.$store.commit('SET_DRAWER', drawState)
+        }
+      }
+    }
   }
 </script>
 
