@@ -6,7 +6,7 @@
     :src="require('../assets/img/' + barImage)"
     mobile-breakpoint="760"
     app
-    width="300"
+    width="270"
     v-model="sidebar"
     v-bind="$attrs"
   >
@@ -22,18 +22,7 @@
       dense
       nav
     >
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-icon size="40">mdi-alarm</v-icon>
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <div class="title">
-            <div>E</div>
-            <div>STIMATE</div>
-            <div>IT</div>
-          </div>          
-        </v-list-item-content>
-      </v-list-item>
+      <v-img src="../assets/img/estimate.svg" />
       <div class='sub-title'>
         ADMINISTRATOR
       </div>
@@ -45,28 +34,13 @@
       expand
       nav
     >
-      <template v-for="(item, i) in computedItems">
+      <template v-for="(item, i) in mainMenu">
         <base-item
           :key="`item-${i}`"
           :item="item"
         />
       </template>
     </v-list>
-    <template v-slot:append>
-      <v-divider/>
-      <v-list>
-        <v-list-item>
-          <v-list-item-avatar size="50">
-            <v-img :src="require('../assets/avatar/' + login.loggedInUser.avatar)"></v-img>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <div class='footer-name'>
-              {{login.loggedInUser.fullName}}
-            </div>          
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </template>
   </v-navigation-drawer>
 </template>
 
@@ -79,8 +53,8 @@
     },
 
     data: () => ({
-      barColor: 'rgba(0, 0, 0, .9), rgba(0, 0, 0, .4)',
-      barImage: 'sidebar.jpg',
+      barColor: 'rgba(60, 135, 230, .9), rgba(60, 135, 230, .7)',
+      barImage: 'sideback.png',
       sidebar: null,
       mainMenu: [
         { label: 'UŻYTKOWNICY', icon: 'mdi-account', to: '/' },
@@ -101,27 +75,6 @@
         }
       },
     }),
-    
-    computed: {
-      computedItems () {
-        return this.mainMenu.map(this.mapItem)
-      },
-      profile () {
-        return {
-          avatar: true,
-        }
-      },
-    },
-
-    methods: {
-      mapItem (item) {
-        return {
-          ...item,
-          children: item.children ? item.children.map(this.mapItem) : undefined,
-          title: item.title,
-        }
-      },
-    },
   }
 </script>
 
@@ -129,9 +82,12 @@
   @import '~vuetify/src/styles/tools/_rtl.sass'
 
   #core-navigation-drawer
+    .v-image__image--cover 
+      background-size: 100% 100%
     .v-list-group__header.v-list-item--active:before
-      opacity: .24
-
+      opacity: .25
+    .primary
+      background-color: rgba(255, 255, 255, 0.35) !important
     .v-list-item__avatar:first-child 
         margin-right: 12px
         margin-left: 22px
@@ -149,28 +105,7 @@
         +rtl()
           margin-left: 24px
           margin-right: 12px !important
-      .title
-        display: inherit
-        margin-top: 10px
-        div:first-child
-          font-size: 40px
-          transform: scale(0.9, 1.2)
-          margin-top: -3px
-        div:nth-child(2)
-          font-size: 30px
-          transform: scale(0.85, 1.3)
-          margin-left: -10px
-        div:nth-child(3)
-          font-size: 40px
-          margin-top: -1px
-          margin-left: -10px
-          transform: scale(0.9, 1.2)
-    .sub-title
-      text-align: center
-      font-size: 26px
-      font-weight: 500
-      color: rgba(255,255,255,0.4)
-      margin-bottom: 20px
+          margin-bottom: 20px
     .footer-name
       // text-align: center
       color: white
