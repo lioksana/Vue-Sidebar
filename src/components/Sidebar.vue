@@ -88,6 +88,11 @@
       opacity: .25
     .primary
       background-color: rgba(255, 255, 255, 0.35) !important
+    .sub-title
+      text-align: center
+      font-size: 24px
+      font-weight: 700
+      color: rgba(255,255,255,0.5)
     .v-list-item__avatar:first-child 
         margin-right: 12px
         margin-left: 22px
@@ -106,14 +111,6 @@
           margin-left: 24px
           margin-right: 12px !important
           margin-bottom: 20px
-    .footer-name
-      // text-align: center
-      color: white
-      font-size: 18px
-      margin: 10px 6px 10px 6px
-      // border: 1px solid rgba(255,255,255,0.2)
-      // border-radius: 5px
-      padding: 10px 0px
     .v-list--dense
       .v-list-item
         &__icon--text,
@@ -121,7 +118,7 @@
           margin-top: 10px
 
     .v-list-item__icon
-      margin: 14px 0
+      margin: 12px 0
     .v-list-group--sub-group
       .v-list-item
         +ltr()
