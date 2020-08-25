@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:30px" id="scrolling-techniques">
     <h1>
       GROUPS page.
     </h1>

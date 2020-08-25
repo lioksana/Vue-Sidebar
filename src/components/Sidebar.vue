@@ -18,18 +18,18 @@
         height="100%"
       />
     </template>
-    <v-list
-      dense
-      nav
-    >
-      <v-img src="../assets/img/estimate.svg" />
-      <div class='sub-title'>
-        ADMINISTRATOR
-      </div>
-    </v-list>
-
-    <v-divider class="mb-2" />
-
+    <template v-slot:prepend>
+      <v-list
+        expand
+        nav
+      >
+        <v-img src="../assets/img/estimate.svg" />
+        <div class='sub-title'>
+          ADMINISTRATOR
+        </div>
+      </v-list>
+    </template>
+      
     <v-list
       expand
       nav
@@ -41,6 +41,10 @@
         />
       </template>
     </v-list>
+    <template v-slot:append>
+      <v-img src="../assets/img/footerlogo.svg" />
+    </template>
+    
   </v-navigation-drawer>
 </template>
 

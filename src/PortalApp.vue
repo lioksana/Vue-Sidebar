@@ -39,3 +39,7 @@ export default {
   },
 };
 </script>
+<style lang="sass">
+  html
+    overflow-y: auto !important
+</style>
